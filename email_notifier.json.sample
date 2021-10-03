@@ -1,0 +1,13 @@
+{
+   "logfile": "log/logfile.log",
+   "accounts":[{
+      "mailbox": "mail.yourdomain.com",
+      "user": "email@yourdomain.com",
+      "password": "mooltipass",
+      "notification":[
+         "ssh",
+         "user@domainwithemail.com",
+         "printf 'New email for USER at TIME\\nFrom email_notifier.py' | mail -s 'MSG' 5555550100@txt.phoneco.net"
+      ]
+   }]
+}
