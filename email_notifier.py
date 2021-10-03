@@ -27,12 +27,19 @@ def set_v_print(verbose: bool) -> None:
     v_print = print if verbose else lambda *a, **k: None
 
 
+def removesuffix(s: str, suffix:str) -> str:
+    """Removes the suffix from s."""
+    if s.endswith(suffix):
+        return s[:-len(suffix)]
+    return s
+
+
 def maybe_notify(cmd: List[str], user: str, msgs: List[Tuple[str, str]]) -> str:
     """Given a list of (subject, time) tuples, note the newest one
     and then send a notification."""
-    newest_time = max([datetime.datetime.strptime(t, '%a, %d %b %Y %H:%M:%S %z') for s, t in msgs])
+    newest_time = max([datetime.datetime.strptime(removesuffix(t, ' (UTC)'), '%a, %d %b %Y %H:%M:%S %z') for s, t in msgs])
     notified_fn = __file__.replace('.py', '.pickle')
-    out = ""
+    out = "OK"
     do_notify = False
     previous_newest = {}
     if os.path.exists(notified_fn):
@@ -108,7 +115,7 @@ def main(account: dict) -> None:
 
     server.close()
     server.logout()
-    logging.info(f"{time.time() - start_time:2.0f}s {update_status}")
+    logging.info(f"{time.time() - start_time:2.0f}s {account['user']} {update_status}")
     v_print(update_status)
 
 
