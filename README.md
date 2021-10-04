@@ -31,17 +31,17 @@ The logfile it writes looks something like this:
 This script occupies the middle-ground between manually checking email, and
 letting a computer post a passive notification for you in a feed.
 
-##### (Worst) Manually Checking Email
+#### (Worst) Manually Checking Email
 
 This is the worst option of the three. Humans shouldn't be required to
 repeatly check for email like we're in a [Skinner Box](https://en.wikipedia.org/wiki/Operant_conditioning_chamber).
 And we're fallable, so for rarely-used email, we're likely to fall out of the habit.
 
-##### (Better) Push Notifications for New Email
+#### (Better) Push Notifications for New Email
 
 **That's this solution.** You'll get interrupted, but you've decided it's OK for this account.
 
-##### (Best) Passive Feed Notification of New Email
+#### (Best) Passive Feed Notification of New Email
 
 Instead of training ourselves to check apps and sites on a recurring basis, or letting
 them interrupt us with push notifications, the best solution is to funnel everything through
