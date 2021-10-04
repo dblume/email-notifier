@@ -115,7 +115,7 @@ def main(account: dict) -> None:
 
     server.close()
     server.logout()
-    logging.info(f"{time.time() - start_time:2.0f}s {account['user']} {update_status}")
+    logging.info(f"{time.time() - start_time:2.0f}s {account['user'].replace('@', '-')} {update_status}")
     v_print(update_status)
 
 
