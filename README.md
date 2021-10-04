@@ -26,6 +26,31 @@ The logfile it writes looks something like this:
     2012-10-10 13:00  1s Sent notification for msg on 2012-10-09 16:20:30+00:00
     2012-10-11 13:00  0s OK
 
+## Balancing Notification and Attention
+
+This script occupies the middle-ground between manually checking email, and
+letting a computer post a passive notification for you in a feed.
+
+##### (Worst) Manually Checking Email
+
+This is the worst option of the three. Humans shouldn't be required to
+repeatly check for email like we're in a [Skinner Box](https://en.wikipedia.org/wiki/Operant_conditioning_chamber).
+And we're fallable, so for rarely-used email, we're likely to fall out of the habit.
+
+##### (Better) Push Notifications for New Email
+
+**That's this solution.** You'll get interrupted, but you've decided it's OK for this account.
+
+##### (Best) Passive Feed Notification of New Email
+
+Instead of training ourselves to check apps and sites on a recurring basis, or letting
+them interrupt us with push notifications, the best solution is to funnel everything through
+a [feed](https://en.wikipedia.org/wiki/RSS). Then, at your discretion, you read
+your [feed aggregator](https://en.wikipedia.org/wiki/Feedly) for passive notifications
+from multiple agents.
+
+Use [email-feed](https://github.com/dblume/email-feed) for feed notifications.
+
 ## Getting Started
 
 1. Rename email\_notifier.json.sample to email\_notifier.json
