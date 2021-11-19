@@ -1,6 +1,6 @@
 [![Code Climate](https://codeclimate.com/github/dblume/email-notifier/badges/gpa.svg)](https://codeclimate.com/github/dblume/email-notifier)
 [![Issue Count](https://codeclimate.com/github/dblume/email-notifier/badges/issue_count.svg)](https://codeclimate.com/github/dblume/email-notifier/issues)
-[![License](https://img.shields.io/badge/license-MIT_license-blue.svg)](https://raw.githubusercontent.com/dblume/email-notifer/master/LICENSE.txt)
+[![License](https://img.shields.io/badge/license-MIT_license-blue.svg)](https://raw.githubusercontent.com/dblume/email-notifer/main/LICENSE.txt)
 ![python3.x](https://img.shields.io/badge/python-3.x-green.svg)
 
 # email-notifier
