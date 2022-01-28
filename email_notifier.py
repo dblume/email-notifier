@@ -9,7 +9,7 @@ import email
 from email.header import decode_header
 import json
 import logging
-import datetime
+from datetime import datetime as dt
 import pickle
 import subprocess
 from typing import Callable, List, Tuple, Dict
@@ -37,7 +37,9 @@ def removesuffix(s: str, suffix:str) -> str:
 def maybe_notify(cmd: List[str], user: str, msgs: List[Tuple[str, str]]) -> str:
     """Given a list of (subject, time) tuples, note the newest one
     and then send a notification."""
-    newest_time = max([datetime.datetime.strptime(removesuffix(t, ' (UTC)'), '%a, %d %b %Y %H:%M:%S %z') for s, t in msgs])
+    # 'Thu, 27 Jan 2022 17:46:09 GMT', 'Thu, 27 Jan 2022 17:46:09 -0000 (UTC)'
+    newest_time = max([dt.strptime(removesuffix(t.replace('GMT', '-0000'), ' (UTC)'),
+                           '%a, %d %b %Y %H:%M:%S %z') for s, t in msgs])
     notified_fn = __file__.replace('.py', '.pickle')
     out = "OK"
     do_notify = False
@@ -79,9 +81,12 @@ def main(account: dict) -> None:
     """ Fetch all the unread mail, and send unread ones to maybe_notify.
     """
     start_time = time.time()
-
-    server = imaplib.IMAP4_SSL(account['mailbox'])
-    server.login(account['user'], account['password'])
+    try:
+        server = imaplib.IMAP4_SSL(account['mailbox'])
+        server.login(account['user'], account['password'])
+    except Exception as e:
+        logging.critical(f"{time.time() - start_time:2.0f}s imaplib.IMAP4_SSL or login Exception: {str(e)}")
+        return
     server.select()
     status, data = server.search(None, '(UNSEEN)')
     if status != 'OK':
